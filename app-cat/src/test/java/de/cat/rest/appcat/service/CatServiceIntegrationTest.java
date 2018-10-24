@@ -20,7 +20,7 @@ public class CatServiceIntegrationTest {
 
     @Test
     public void findAll(){
-        assertThat(service.findAll().size(), is(3));
+        assertThat(service.findAll("").size(), is(3));
     }
 
     @Test

@@ -24,7 +24,7 @@ public class CatServiceUnitTest {
         List<Cat> cats = createMockCats();
         when(repository.findAll()).thenReturn(cats);
 
-        assertThat(service.findAll().size(), is(2));
+        assertThat(service.findAll("").size(), is(2));
     }
 
     private List<Cat> createMockCats() {

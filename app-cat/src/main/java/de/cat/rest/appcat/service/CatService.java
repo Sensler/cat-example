@@ -43,8 +43,11 @@ public class CatService {
 
     }
 
-    public List<Cat> findAll() {
-        return repository.findAll();
+    public List<Cat> findAll(String name) {
+        if(name.isEmpty()){
+            return repository.findAll();
+        }
+        return repository.findByNameContains(name);
     }
 
     public Cat save(Cat entity) {
