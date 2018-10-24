@@ -1,4 +1,4 @@
-package de.cat.rest.appcat;
+package de.cat.rest.appcat.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,7 +28,7 @@ public class HelloControllerIntegrationTest {
     }
 
     @Test
-    public void hello1() throws Exception {
+    public void helloName() throws Exception {
         String name = "cat";
         mockMvc.perform(get("/hello/{name}", name))
                 .andExpect(status().isOk())

@@ -1,9 +1,9 @@
-package de.cat.rest.appcat;
+package de.cat.rest.appcat.web;
 
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class HelloControllerUnitTest {
 
