@@ -1,0 +1,12 @@
+<form>
+  <div><label for="id">Id</label>
+    <input type="text" name="id" [(ngModel)]="model.id" disabled>
+  </div>
+  <div><label for="name">Name</label>
+    <input type="text" name="name" [(ngModel)]="model.name">
+  </div>
+  <div><label for="color">Color</label>
+    <input type="text" name="color" [(ngModel)]="model.color">
+  </div>
+  <button type="button" (click)="save()">Save</button>
+</form>

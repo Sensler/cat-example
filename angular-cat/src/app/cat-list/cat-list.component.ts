@@ -20,4 +20,8 @@ export class CatListComponent implements OnInit {
   	);
   }
 
+  onCatClick(cat: Cat) {
+    this.catService.setSelectedCat(cat);
+  }
+
 }

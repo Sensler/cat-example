@@ -5,7 +5,7 @@
     <th>name</th>
     <th>color</th>
   </tr>
-  <tr *ngFor="let cat of cats$">
+  <tr *ngFor="let cat of cats$" (click)="onCatClick(cat)">
     <td>{{cat.id}}</td>
     <td>{{cat.name}}</td>
     <td>{{cat.color}}</td>
