@@ -22,7 +22,7 @@ public class HelloControllerIntegrationTest {
 
     @Test
     public void hello() throws Exception {
-        mockMvc.perform(get("/hello"))
+        mockMvc.perform(get("/api/hello"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello World"));
     }
@@ -30,7 +30,7 @@ public class HelloControllerIntegrationTest {
     @Test
     public void helloName() throws Exception {
         String name = "cat";
-        mockMvc.perform(get("/hello/{name}", name))
+        mockMvc.perform(get("/api/hello/{name}", name))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello " + name));
     }

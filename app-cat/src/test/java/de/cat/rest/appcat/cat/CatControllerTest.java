@@ -43,7 +43,7 @@ public class CatControllerTest {
 
         when(service.findAll("")).thenReturn(createCatsMock());
 
-        mockMvc.perform(get("/cats")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)));
+        mockMvc.perform(get("/api/cats")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)));
 
     }
 
@@ -67,7 +67,7 @@ public class CatControllerTest {
 
         when(service.save(same(cat))).thenReturn(cat);
 
-        mockMvc.perform(put("/cats/{id}", cat.getId()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(cat))).andExpect(status().isNoContent());
+        mockMvc.perform(put("/api/cats/{id}", cat.getId()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(cat))).andExpect(status().isNoContent());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class CatControllerTest {
 
         when(service.save(same(cat))).thenReturn(cat);
 
-        mockMvc.perform(put("/cats/2", cat.getId()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(cat))).andExpect(status().isBadRequest());
+        mockMvc.perform(put("/api/cats/2", cat.getId()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(cat))).andExpect(status().isBadRequest());
     }
 
 

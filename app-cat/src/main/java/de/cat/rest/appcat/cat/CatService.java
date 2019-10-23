@@ -52,7 +52,7 @@ public class CatService {
         return repository.save(entity);
     }
 
-    public Cat findById(Long id) throws CatNotFoundException {
+    public Cat findById(Long id){
         return repository.findById(id).orElseThrow(() -> new CatNotFoundException("Cat with id= " + id + " not found."));
     }
 
