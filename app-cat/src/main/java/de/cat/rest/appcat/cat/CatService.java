@@ -20,9 +20,9 @@ public class CatService {
 
     @PostConstruct
     public void init() {
-        repository.save(new Cat("Mauzi", "braun"));
-        repository.save(new Cat("Snobilikat", "bunt"));
-        repository.save(new Cat("Flamiau", "weiß"));
+        repository.save(new Cat("Mauzi", "brown"));
+        repository.save(new Cat("Snobilikat", "wheat"));
+        repository.save(new Cat("Flamiau", "red"));
 
         logger.info("********** findAll **********");
         repository.findAll().forEach(cat -> logger.info(cat.toString()));
@@ -33,8 +33,8 @@ public class CatService {
         logger.info("********** findByName(\"Mauzi\") **********");
         repository.findByName("Mauzi").forEach(cat -> logger.info(cat.toString()));
 
-        logger.info("********** findByNameAndColor(\"Flamiau\", \"weiß\") **********");
-        repository.findByNameAndColor("Flamiau", "weiß").forEach(cat -> logger.info(cat.toString()));
+        logger.info("********** findByNameAndColor(\"Flamiau\", \"red\") **********");
+        repository.findByNameAndColor("Flamiau", "red").forEach(cat -> logger.info(cat.toString()));
 
         logger.info("********** findByNameContains(\"l\") **********");
         repository.findByNameContains("l").forEach(cat -> logger.info(cat.toString()));

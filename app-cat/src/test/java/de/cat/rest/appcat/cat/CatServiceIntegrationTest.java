@@ -28,7 +28,7 @@ public class CatServiceIntegrationTest {
         Cat cat = service.findById(1L);
         assertThat(cat.getId(), is(1L));
         assertThat(cat.getName(), is("Mauzi"));
-        assertThat(cat.getColor(), is("braun"));
+        assertThat(cat.getColor(), is("brown"));
     }
 
     @Test(expected = CatNotFoundException.class)
