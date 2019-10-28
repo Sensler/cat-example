@@ -1,8 +1,6 @@
 package de.cat.rest.appcat.cat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.cat.rest.appcat.cat.Cat;
-import de.cat.rest.appcat.cat.CatService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +14,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.same;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -44,6 +44,19 @@ public class CatControllerTest {
         when(service.findAll("")).thenReturn(createCatsMock());
 
         mockMvc.perform(get("/api/cats")).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(2)));
+
+    }
+
+    @Test
+    public void findOne() throws Exception {
+
+        Cat mock = new Cat("xyz", "red");
+        when(service.findById(1L)).thenReturn(mock);
+
+        mockMvc.perform(get("/api/cats/1"))
+            .andExpect(status().isOk())
+            .andExpect(content().string(containsString("xyz")));
+
 
     }
 
